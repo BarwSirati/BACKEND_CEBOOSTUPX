@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  api:
+    container_name: BACKEND_CEBOOSTUPX
+    image: nodejs/api
+    build:
+      context: ./
+      target: base
+    volumes:
+      - .:/src/api
+    networks:
+      - nginx
+networks:
+  nginx:
+    name: nginx_bridge
+    driver: bridge
